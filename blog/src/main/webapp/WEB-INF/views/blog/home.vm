@@ -1,0 +1,45 @@
+<!Doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,minimum-scale=1.0" name=viewport>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name=referrer content=always>
+    <title>Addis Inn</title>
+    <meta name=description content="后台开发">
+</head>
+<body>
+<div class=container>
+    <div>
+        <header id=header>
+            <h1><a href="/">Addis Inn</a></h1>
+
+            <p class=subtitle>专注 WEB 开发</p>
+        </header>
+    </div>
+
+
+    <div>
+        #foreach($num in $nums)
+            <div>
+                <article>
+                    <h1><a href="/post/use-docker.html">开始使用 Docker</a></h1>
+                    <time>Aug 14, 2016</time>
+                    <div><p>一年前，我在《开始使用 Vagrant》一文中写到：使用虚拟化软件安装
+                        Linux，有着「统一线下线上环境、不受升级宿主系统的影响、容易备份和恢复」等几大优点，非常适用于搭建 WEB 开发环境。 但 Vagrant 这种依赖
+                        VirtualBox/VMWare/Parallels Desktop 等软件虚拟完整操作系统的方案有几个硬伤，例如占用大量系统资源、新建或启动虚拟机不够迅速等。Docker
+                        是操作系统级虚拟化，它虚拟出来的环境一般被称为 Docker 容器，而不是虚拟机。Docker 容器直接运行在宿主系统的操作系统内核之上，启动一个新的 Docker
+                        容器能在一秒内完成。[...]</p>
+
+                        <p><a href="/post/use-docker.html" class="more-link">继续阅读 &raquo;</a></p></div>
+                </article>
+            </div>
+        #end
+        <footer id=footer class=inner>&copy;&nbsp;2016&nbsp;-&nbsp;Addis Inn&nbsp;-&nbsp;</footer>
+    </div>
+</div>
+<input type=hidden id=CURRENT_PAGE value="blog-home"><input type=hidden id=CDN_DOMAIN value="//st.imququ.com">
+</body>
+</html>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
