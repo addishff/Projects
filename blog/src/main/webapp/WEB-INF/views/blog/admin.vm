@@ -1,49 +1,54 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Add Atical</title>
-    <meta name=description content="后台开发">
-</head>
-<style type="text/css">
-    a.button {
-        color: blue;
-        font: 20px;
-    }
-</style>
-
 <div>
+    <head>
+        <meta charset="utf-8">
+        <title>Add Atical</title>
+        <meta name=description content="后台开发">
+    </head>
+    <style type="text/css">
+        a.button {
+            color: #5c9aff;
+        }
+    </style>
+
     <div>
         <header id=header>
             <h1><a href="/">Addis Inn</a></h1>
 
-            <p class=subtitle>Add Atical</p>
+            <h3>Add Atical</h3>
         </header>
+        <table>
+            <tr>
+                <td>Title</td>
+            </tr>
+            <tr>
+                <td><textarea style="min-width: 250px;min-height: 10px" id="title"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Abstract</td>
+            </tr>
+            <tr>
+                <td><textarea style="min-width: 250px;min-height: 20px" id="abstract"></textarea></td>
+            </tr>
+            <tr>
+                <td>Content</td>
+            </tr>
+            <tr>
+                <td><textarea style="min-width: 250px;min-height: 100px" id="content"></textarea></td>
+            </tr>
+        </table>
+        <tr>
+            <td><a class="button" onclick="addBlog()"><h3>->ADD</h3></a></td>
+        </tr>
     </div>
-    <table>
-        <tr>
-            <td>Title</td>
-        </tr>
-        <tr>
-            <td><textarea style="min-width: 500px" id="title" rows="1"></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td>Abstract</td>
-        </tr>
-        <tr>
-            <td><textarea style="min-width: 500px" id="abstract" rows="3"></textarea></td>
-        </tr>
-        <tr>
-            <td>Content</td>
-        </tr>
-        <tr>
-            <td><textarea style="min-width: 500px" id="Content" rows="10"></textarea></td>
-        </tr>
-        <tr>
-            <td>
-                <lable>-></lable>
-                <a class="button">ADD</a></td>
-        </tr>
-    </table>
 </div>
-</html>
+
+<script>
+    function addBlog() {
+        var btitle = document.getElementById('title').value;
+        var babstract = document.getElementById('abstract').value;
+        var bcontent = document.getElementById('content').value;
+
+        console.log("in addBlog:" + btitle + " " + babstract + " " + bcontent);
+    }
+</script>

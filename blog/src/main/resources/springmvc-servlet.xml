@@ -9,7 +9,9 @@
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
     http://www.springframework.org/schema/mvc
     http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
     <context:annotation-config/>
+    <context:component-scan base-package="controller"/>
 
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
@@ -19,7 +21,6 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <context:component-scan base-package="controller"/>
 
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath" value="/"/>

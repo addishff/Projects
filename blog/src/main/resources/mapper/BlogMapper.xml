@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.BlogMapper">
+    <resultMap id="bdBlog" type="model.Blog">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="abstract" property="abstractStr" jdbcType="CLOB"/>
+        <result column="content" property="content" jdbcType="CLOB"/>
+        <result column="createtime" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="bdBlog">
+        SELECT id,title,abstract,content,createtime FROM li_article ORDER BY createtime DESC
+    </select>
+</mapper>
