@@ -3,6 +3,8 @@
         <meta charset="utf-8">
         <title>Add Atical</title>
         <meta name=description content="后台开发">
+    ##        <script src="jquery.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
     </head>
     <style type="text/css">
         a.button {
@@ -18,23 +20,23 @@
         </header>
         <table>
             <tr>
-                <td>Title</td>
+                <td contenteditable="true">Title</td>
             </tr>
             <tr>
-                <td><textarea style="min-width: 250px;min-height: 10px" id="title"></textarea>
+                <td><textarea style="min-width: 250px;min-height: 10px" id="title" tabindex="1" title="最多20个字"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>Abstract</td>
             </tr>
             <tr>
-                <td><textarea style="min-width: 250px;min-height: 20px" id="abstract"></textarea></td>
+                <td><textarea style="min-width: 250px;min-height: 20px" id="abstract" tabindex="3"></textarea></td>
             </tr>
             <tr>
                 <td>Content</td>
             </tr>
             <tr>
-                <td><textarea style="min-width: 250px;min-height: 100px" id="content"></textarea></td>
+                <td><textarea style="min-width: 250px;min-height: 100px" id="content" tabindex="2"></textarea></td>
             </tr>
         </table>
         <tr>
@@ -48,7 +50,13 @@
         var btitle = document.getElementById('title').value;
         var babstract = document.getElementById('abstract').value;
         var bcontent = document.getElementById('content').value;
-
+        var data = "{title:\"" + btitle + "\",abstractStr:\"" + babstract + "\",content:\"" + bcontent + "\"}";
         console.log("in addBlog:" + btitle + " " + babstract + " " + bcontent);
+        $.post('/add', {blog: data}, function (result) {
+            if (result.status == 0) {
+                alert("添加成功!");
+                window.location.href = "/post/"+result.result;
+            }
+        });
     }
 </script>

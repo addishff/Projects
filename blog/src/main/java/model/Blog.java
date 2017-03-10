@@ -1,5 +1,7 @@
 package model;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * Created by huangfeifeng on 8/19/16.
  */
@@ -39,5 +41,9 @@ public class Blog extends EntityBase {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public static Blog buildFromStr(String blogStr) {
+        return JSONObject.parseObject(blogStr, Blog.class);
     }
 }

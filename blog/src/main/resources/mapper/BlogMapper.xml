@@ -10,6 +10,21 @@
     </resultMap>
 
     <select id="selectAll" resultMap="bdBlog">
-        SELECT id,title,abstract,content,createtime FROM li_article ORDER BY createtime DESC
+        SELECT id,title,abstract,createtime
+        FROM li_article
+        ORDER BY createtime DESC
     </select>
+
+    <select id="selectOne" resultMap="bdBlog">
+        SELECT id,title,content,createtime
+        FROM li_article
+        WHERE id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="model.Blog">
+        INSERT INTO li_article
+        (title,abstract,content)
+        VALUES
+        (#{title},#{abstractStr},#{content})
+    </insert>
 </mapper>

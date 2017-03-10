@@ -2,6 +2,8 @@ package service;
 
 import model.Blog;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -9,4 +11,10 @@ import java.util.List;
  */
 public interface BlogService {
     List<Blog> getBlogs();
+
+    Blog getBlog(Integer id);
+
+    int addBlog(Blog blog);
+
+    String filter(String str) throws IOException;
 }

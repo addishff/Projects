@@ -1,6 +1,7 @@
 package mapper;
 
 import model.Blog;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -9,4 +10,8 @@ import java.util.List;
  */
 public interface BlogMapper {
     List<Blog> selectAll();
+
+    Blog selectOne(@Param("id") Integer id);
+
+    int insert(Blog blog);
 }

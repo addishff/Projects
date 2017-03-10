@@ -1,1 +1,30 @@
-hello word!
+<!Doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>Read</title>
+    <meta name=description content="博客详情">
+</head>
+<body>
+<div class=container>
+    <div>
+        <header id=header>
+            <h1><a href="/">Addis Inn</a></h1>
+
+            <p class=subtitle>专注 WEB 开发</p>
+        </header>
+    </div>
+    <div>
+        <div>
+            <article>
+                <h1><a href="/post/$blog.id">$blog.title</a></h1>
+                <time>$blog.createTime</time>
+                <div><p>$blog.content</p>
+            </article>
+        </div>
+        <footer id=footer class=inner>&copy;&nbsp;2016&nbsp;-&nbsp;Addis Inn&nbsp;-&nbsp;</footer>
+    </div>
+</div>
+<input type=hidden id=CURRENT_PAGE value="blog-home"><input type=hidden id=CDN_DOMAIN value="//st.imququ.com">
+</body>
+</html>

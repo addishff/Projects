@@ -1,5 +1,6 @@
 package controller;
 
+import model.Blog;
 import model.JsonWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ public class BlogController {
     @Autowired
     BlogService blogService;
 
-    @RequestMapping("index")
+    @RequestMapping("/index")
     @ResponseBody
     public JsonWrapper indexView() {
         return new JsonWrapper();
@@ -32,15 +33,17 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public JsonWrapper addBlog(@RequestParam("blog") String blogStr) {
+    @ResponseBody
+    public JsonWrapper addBlog(@RequestParam(value = "blog", required = false) String blogStr) {
         System.out.println(blogStr);
-        return new JsonWrapper();
+        int resCode = blogService.addBlog(Blog.buildFromStr(blogStr));
+        return resCode == 1 ? new JsonWrapper() : new JsonWrapper("添加失败!");
     }
 
     @RequestMapping("/post/{id}")
     public ModelAndView postView(@PathVariable int id) {
         System.out.println(id);
-        return new ModelAndView("blog/post");
+        return new ModelAndView("blog/post", "blog", blogService.getBlog(id));
     }
 
 }
